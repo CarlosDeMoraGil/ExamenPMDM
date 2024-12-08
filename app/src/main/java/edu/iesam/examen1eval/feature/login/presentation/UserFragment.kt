@@ -43,7 +43,15 @@ class UserFragment : Fragment() {
 
                 Log.d("@dev", "$usernameBind $passwordBind")
 
-               viewModel.addUser(User(usernameBind, passwordBind))
+                val remember: Boolean
+                if (reminder.isChecked){
+                    remember = true
+                    reminder.isChecked
+                }else{
+                    remember = false
+                }
+
+               viewModel.addUser(User(usernameBind, passwordBind, remember))
 
 
             }

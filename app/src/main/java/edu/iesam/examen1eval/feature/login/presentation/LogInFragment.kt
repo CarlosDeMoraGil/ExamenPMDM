@@ -47,6 +47,16 @@ class LogInFragment : Fragment() {
                 val user = viewModel.getUser(username)
 
                 if(user?.password == password){
+                    if(reminder.isChecked){
+                        user.remember = true
+                        binding.username.hint = user.username
+                        binding.password.hint = user.password
+                        reminder.isChecked
+
+                    }else{
+                        user.remember = false
+                    }
+
                     Log.d("@dev", "INICIO DE SESION COMPLETADO")
                 }else{
                     Log.d("@dev", "La contraseña es incorrecta")
